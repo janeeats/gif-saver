@@ -5,11 +5,25 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
 group :development do
+  gem 'sqlite3'
   gem 'pry-rails'
+  gem 'better_errors'
 end
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
+  gem 'rb-fsevent', '~> 0.9'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'  
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.

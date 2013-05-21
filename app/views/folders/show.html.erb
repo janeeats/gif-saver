@@ -7,7 +7,7 @@
   <b>Gifs:</b>
   <ul>
     <% @folder.gifs.each do |gif| %>
-      <li><%= gif.file_path %></li>
+      <li><img src="/assets/<%= gif.file_path %>"></li>
     <% end %>
   </ul>
 

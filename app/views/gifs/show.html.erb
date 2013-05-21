@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Folder:</b>
-  <%= @gif.folder_id %>
+  <%= link_to @gif.folder.name, @gif.folder %>
 </p>
 
 <p>
   <b>File path:</b>
-  <%= @gif.file_path %>
+  <img src="/assets/<%= @gif.file_path %>">
 </p>
 
 
