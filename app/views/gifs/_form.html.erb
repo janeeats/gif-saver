@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :folder_id %><br />
-    <%= f.number_field :folder_id %>
+    <%= f.select :folder_id, current_user.folders.collect {|folder| [folder.name, folder.id]}, {:prompt => 'Select Folder'} %>
   </div>
   <div class="field">
     <%= f.label :file_path %><br />
