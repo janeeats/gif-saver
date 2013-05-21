@@ -3,6 +3,16 @@
   <%= @folder.name %>
 </p>
 
+<p>
+  <b>Gifs:</b>
+  <ul>
+    <% @folder.gifs.each do |gif| %>
+      <li><%= gif.file_path %></li>
+    <% end %>
+  </ul>
+
+</p>
+
 
 <%= link_to 'Edit', edit_folder_path(@folder) %> |
 <%= link_to 'Back', folders_path %>

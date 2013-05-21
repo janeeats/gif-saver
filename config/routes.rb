@@ -1,5 +1,8 @@
 Gifsaver::Application.routes.draw do
 
+  resources :gifs
+
+
   resources :folders
 
 
