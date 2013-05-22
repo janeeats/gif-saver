@@ -4,6 +4,7 @@
   <tr>
     <th>Folder</th>
     <th>File path</th>
+    <th>File</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +13,14 @@
 <% @gifs.each do |gif| %>
   <tr>
     <td><%= gif.folder.name %></td>
-    <td><img src="/assets/<%= gif.file_path %>" /></td>
+    <td>
+      <% unless gif.file_path.empty? %> 
+        <img src="/assets/<%= gif.file_path %>" />
+      <% end %> 
+    </td>
+    <td>
+        <%= image_tag gif.file.url %>
+    </td>
     <td><%= link_to 'Show', gif %></td>
     <td><%= link_to 'Edit', edit_gif_path(gif) %></td>
     <td><%= link_to 'Destroy', gif, method: :delete, data: { confirm: 'Are you sure?' } %></td>
