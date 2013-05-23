@@ -17,8 +17,8 @@
     <%= f.select :folder_id, current_user.folders.collect {|folder| [folder.name, folder.id]}, {:prompt => 'Select Folder'} %>
   </div>
   <div class="field">
-    <%= f.label :file_path %><br />
-    <%= f.text_field :file_path %>
+    <%= f.label :file_remote_url %><br />
+    <%= f.text_field :file_remote_url %>
   </div>
 
   <div class="field">

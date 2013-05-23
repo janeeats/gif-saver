@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Folder</th>
-    <th>File path</th>
     <th>File</th>
     <th></th>
     <th></th>
@@ -13,11 +12,6 @@
 <% @gifs.each do |gif| %>
   <tr>
     <td><%= gif.folder.name %></td>
-    <td>
-      <% unless gif.file_path.empty? %> 
-        <img src="/assets/<%= gif.file_path %>" />
-      <% end %> 
-    </td>
     <td>
         <%= image_tag gif.file.url %>
     </td>
