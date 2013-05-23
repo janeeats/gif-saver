@@ -41,7 +41,7 @@ class GifsController < ApplicationController
   # POST /gifs.json
   def create
     @gif = Gif.new(params[:gif])
-
+    @gif.download_remote_gif(params[:gif][:file_remote_url])
     respond_to do |format|
       if @gif.save
         format.html { redirect_to @gif, notice: 'Gif was successfully created.' }

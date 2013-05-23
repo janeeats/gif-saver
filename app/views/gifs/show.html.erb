@@ -3,11 +3,12 @@
   <%= link_to @gif.folder.name, @gif.folder %>
 </p>
 
-<p>
-  <b>File path:</b>
-  <img src="/assets/<%= @gif.file_path %>">
-</p>
-
+<% unless @gif.file.url.nil? %> 
+  <p>
+    <b>File via Paperclip:</b>
+    <img src="<%= @gif.file.url %>">
+  </p>
+<% end %> 
 
 <%= link_to 'Edit', edit_gif_path(@gif) %> |
 <%= link_to 'Back', gifs_path %>
