@@ -1,4 +1,5 @@
-<%= form_for(@gif) do |f| %>
+<%= form_for @gif, :url => gifs_path, :html => { :multipart => true }  do |f| %>
+
   <% if @gif.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@gif.errors.count, "error") %> prohibited this gif from being saved:</h2>
@@ -16,9 +17,15 @@
     <%= f.select :folder_id, current_user.folders.collect {|folder| [folder.name, folder.id]}, {:prompt => 'Select Folder'} %>
   </div>
   <div class="field">
-    <%= f.label :file_path %><br />
-    <%= f.text_field :file_path %>
+    <%= f.label :file_remote_url %><br />
+    <%= f.text_field :file_remote_url %>
   </div>
+
+  <div class="field">
+    <%= f.label :file %> <br />
+    <%= f.file_field :file %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
