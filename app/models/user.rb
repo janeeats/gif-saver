@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
     true if self.id == folder.user_id
   end
 
+  def gifs
+    self.folders.collect { |folder| folder.gifs }.flatten
+  end
+
 end
