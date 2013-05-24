@@ -12,7 +12,7 @@
   <b>Folders:</b>
   <ul>
     <% @user.folders.each do |folder| %>
-      <li><%= folder.name %></li>
+      <li><%= link_to folder.name, folder %></li>
     <% end %>
   </ul>
 </p>

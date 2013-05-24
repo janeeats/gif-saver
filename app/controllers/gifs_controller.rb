@@ -1,20 +1,11 @@
 class GifsController < ApplicationController
 
   def index
-    @gifs = Gif.all
+    @folders = current_user.folders.includes(:gifs)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @gifs }
-    end
-  end
-
-  def show
-    @gif = Gif.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @gif }
     end
   end
 
@@ -32,7 +23,7 @@ class GifsController < ApplicationController
     @gif.download_remote_gif(params[:gif][:file_remote_url])
     respond_to do |format|
       if @gif.save
-        format.html { redirect_to @gif, notice: 'Gif was successfully created.' }
+        format.html { redirect_to gifs_url, notice: 'Gif was successfully created.' }
         format.json { render json: @gif, status: :created, location: @gif }
       else
         format.html { render action: "new" }
@@ -50,7 +41,7 @@ class GifsController < ApplicationController
 
     respond_to do |format|
       if @gif.update_attributes(params[:gif])
-        format.html { redirect_to @gif, notice: 'Gif was successfully updated.' }
+        format.html { redirect_to gifs_url, notice: 'Gif was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
