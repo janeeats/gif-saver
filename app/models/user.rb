@@ -4,4 +4,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :username
 
   has_many :folders
+
+  def owner?(folder)
+    true if self.id == folder.user_id
+  end
+
 end
