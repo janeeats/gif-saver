@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522191154) do
+ActiveRecord::Schema.define(:version => 20130524163003) do
 
   create_table "folders", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130522191154) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.string   "file_remote_url"
+    t.string   "caption"
   end
 
   create_table "users", :force => true do |t|

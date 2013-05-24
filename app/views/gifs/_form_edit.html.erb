@@ -1,4 +1,4 @@
-<%= form_for @gif, :url => gifs_path, :html => { :multipart => true }  do |f| %>
+<%= form_for @gif, :url => gif_path, :html => { :multipart => true }  do |f| %>
 
   <% if @gif.errors.any? %>
     <div id="error_explanation">
@@ -15,16 +15,6 @@
   <div class="field">
     <%= f.label :folder_id %><br />
     <%= f.select :folder_id, current_user.folders.collect {|folder| [folder.name, folder.id]}, {:prompt => 'Select Folder'} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :file_remote_url %><br />
-    <%= f.text_field :file_remote_url %>
-  </div>
-
-  <div class="field">
-    <%= f.label :file %> <br />
-    <%= f.file_field :file %>
   </div>
 
   <div class="field">

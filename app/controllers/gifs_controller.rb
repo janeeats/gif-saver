@@ -27,10 +27,6 @@ class GifsController < ApplicationController
     end
   end
 
-  def edit
-    @gif = Gif.find(params[:id])
-  end
-
   def create
     @gif = Gif.new(params[:gif])
     @gif.download_remote_gif(params[:gif][:file_remote_url])
@@ -43,6 +39,10 @@ class GifsController < ApplicationController
         format.json { render json: @gif.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @gif = Gif.find(params[:id])
   end
 
   def update
@@ -68,4 +68,5 @@ class GifsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
