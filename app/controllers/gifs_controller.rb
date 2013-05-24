@@ -1,6 +1,5 @@
 class GifsController < ApplicationController
-  # GET /gifs
-  # GET /gifs.json
+
   def index
     @gifs = Gif.all
 
@@ -10,8 +9,6 @@ class GifsController < ApplicationController
     end
   end
 
-  # GET /gifs/1
-  # GET /gifs/1.json
   def show
     @gif = Gif.find(params[:id])
 
@@ -21,8 +18,6 @@ class GifsController < ApplicationController
     end
   end
 
-  # GET /gifs/new
-  # GET /gifs/new.json
   def new
     @gif = Gif.new
 
@@ -32,13 +27,10 @@ class GifsController < ApplicationController
     end
   end
 
-  # GET /gifs/1/edit
   def edit
     @gif = Gif.find(params[:id])
   end
 
-  # POST /gifs
-  # POST /gifs.json
   def create
     @gif = Gif.new(params[:gif])
     @gif.download_remote_gif(params[:gif][:file_remote_url])
@@ -53,8 +45,6 @@ class GifsController < ApplicationController
     end
   end
 
-  # PUT /gifs/1
-  # PUT /gifs/1.json
   def update
     @gif = Gif.find(params[:id])
 
@@ -69,8 +59,6 @@ class GifsController < ApplicationController
     end
   end
 
-  # DELETE /gifs/1
-  # DELETE /gifs/1.json
   def destroy
     @gif = Gif.find(params[:id])
     @gif.destroy
