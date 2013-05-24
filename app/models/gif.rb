@@ -1,6 +1,6 @@
 class Gif < ActiveRecord::Base
 
-  attr_accessible :file, :folder_id, :file_remote_url
+  attr_accessible :file, :folder_id, :file_remote_url, :caption
 
   has_attached_file :file
 
