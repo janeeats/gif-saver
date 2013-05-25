@@ -9,7 +9,7 @@ body{
   background-size: cover;
   font-weight: 400;
   font-size: 15px;
-  color: #333;
+  color: #fff;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }
@@ -48,7 +48,7 @@ a{
   -ms-user-select: none;
   user-select: none;
   z-index:2;
-  background-color: rgba(12,36,60, 1);
+  background-color: rgba(0,0,0, 1);
 }
 .container > header h1{
   font-size: 36px;
@@ -57,10 +57,10 @@ a{
   position: relative;
   font-family: 'Pacifico', Cambria, Georgia, serif;
   font-weight: 300;
-  color: rgba(130,193,26, 1);
+  color: #ffee32;
   padding-bottom: 20px;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
-}
+/*  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+*/}
 .container > header h1 span{
   font-weight: 700;
 }
