@@ -9,6 +9,10 @@ class GifsController < ApplicationController
     end
   end
 
+  def show
+    @gif = Gif.find(params[:id])
+  end
+
   def new
     @gif = Gif.new
 
