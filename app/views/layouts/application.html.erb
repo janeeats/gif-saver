@@ -10,29 +10,37 @@
 <body>
   <div class="container">
     <header>
-      <h1>gifest</h1>
+      <div class="logobox">
+        <h1>Gifest</h1>
+      </div>
+      <!-- <h2>Get your GIF game up.</h2> -->
 
-      <% if current_user %>
-        Logged in as <%= link_to current_user.username, current_user %>.
-        <%= link_to "Log Out", log_out_path %>
-      <% else %>
+      <div id="nav">
+        <%= link_to "Home", gifs_path %>
+        <%= link_to "Add Gif", new_gif_path %>
+        <%= link_to "My Folders", folders_path %>
+        <%= link_to "Create Folder", new_folder_path %>
+        <%= link_to "Settings", edit_user_path(current_user) %>
+        <% if current_user %>
+          <%= link_to "Log Out", log_out_path %>
+          <% else %>
+          <%= link_to "Login", log_in_path %>
+        <% end %>
+        <%= link_to "", "#" %>
+        <%= link_to "", "#" %>
+        <%= link_to "", "#" %>
+      </div>
+
+      <div class="clear"></div>
+ 
+      <% unless current_user %>            
         <%= link_to "Sign Up", sign_up_path %> |
-        <%= link_to "Login", log_in_path %>
       <% end %>
 
-      <ul>
-        <li><%= link_to "New Folder", new_folder_path %></li>
-        <li><%= link_to "Folders Index", folders_path %></li>
-      </ul>
-      <ul>
-        <li><%= link_to "New gif", new_gif_path %></li>
-        <li><%= link_to "Gifs Index", gifs_path %></li>
-      </ul>
-
-      <p id="notice"><%= notice %></p>
     </header>
 
     <section id="main" class="main">
+      <p id="notice"><%= notice %></p>
       <%= yield %>
     </section>
   </div>

@@ -1,18 +1,11 @@
-<% @folders.each do |folder| %>
-  <div class="pb-wrapper">
-    <div class="pb-scroll">
-      <ul class="pb-strip">
-        <% folder.gifs.each do |gif| %>        
-        <li>
-          <a href="<%= gif.file.url %>" rel="lightbox[<%= gif.folder.name %>]" title="<%= gif.caption %>">
-            <img src="<%= gif.file.url(:thumb) %>" />
-          </a>
-          <%= link_to 'Edit', edit_gif_path(gif) %> | 
-          <%= link_to 'Destroy', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-    <h3 class="pb-title"><%= folder.name %></h3>
-  </div>
-<% end %>
+  <ul id="gifdex">
+    <% @gifs.each do |gif| %>
+    <li>
+      <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>">
+        <img src="<%= gif.file.url(:thumb) %>" />
+      </a><br />
+      <%= link_to 'Edit', edit_gif_path(gif) %> | 
+      <%= link_to 'Destroy', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+    <% end %>
+  </ul>
