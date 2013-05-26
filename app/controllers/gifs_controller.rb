@@ -1,12 +1,16 @@
 class GifsController < ApplicationController
 
   def index
-    @folders = current_user.folders.includes(:gifs)
+    @gifs = Gif.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @gifs }
     end
+  end
+
+  def show
+    @gif = Gif.find(params[:id])
   end
 
   def new
