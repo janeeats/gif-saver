@@ -142,7 +142,6 @@ body {
 
         a:hover {
           background-color: $slate; 
-          color: white;
         }
 
       }
@@ -152,6 +151,8 @@ body {
     .main {
       position: relative;
       padding: 40px;
+      width: 50%;
+
 
       a {
         color: $slate;
