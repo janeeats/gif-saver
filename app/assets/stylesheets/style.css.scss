@@ -1,7 +1,9 @@
 $blue-grey: #d1dad9;
 $slate: #6f7779;
+$medium-gray: #a19b9d;
 
 $red: #d52525;
+$dark-red: #a11a1e;
 
 $fuschia: #a11e7b;
 $royal-purple: #313a71;
@@ -21,62 +23,73 @@ html {
 }
 
 body {
-  font-family: 'Helvetica Neue', 'Helvetica', 'Arial' sans-serif;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
   background: $blue-grey;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 15px;
   color: black;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
   
-  a {
-    color: $slate;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: $red;
+  h1 {
+    font-weight: 100;
+    font-size: 48px;
+    text-transform: uppercase;
   }
 
   .container {
     margin: 0px;
     width: 100%;
     
+    header:hover {
+      position: relative;
+      top: 0px;
+      transition: top 0.3s ease;
+    }
+
     header {
+      position: relative;
+      top:-65px;
+      transition: top 0.7s ease;
       margin: 0px;
       padding: 0px;
       width: auto;
       background-color: $blue-grey;
       color: $slate;
 
+      .logobox:hover > h1 {
+        background-color: $fuschia;
+      }
       .logobox {
         margin: 0px;
-        background-color: $fuschia;
+        border-bottom: 15px solid $fuschia;
+        background-color: $slate;
         width: 10%;
-        height: 50px;
+        height: 80px;
         float:left;
 
         h1 {
-          font-size: 24px;
+          font-size: 28px;
+          line-height: 65px;
+          text-transform: none;
+          text-indent: 10px;
           margin: 0px;
           position: relative;
-          font-family: 'Pacifico', Cambria, Georgia, serif;
-          font-weight: 300;
           color: white;
           width:auto;
           height: auto;
+          font-family: 'Pacifico', serif;
         }
       }
 
       h2 {
-        font-size: 24px;
-        line-height: 24px;
+        font-size: 18px;
         background-color: $royal-purple;
         color: white;
         margin: 0px;
         padding: 20px;
-        font-family: Cambria, Georgia, serif;
-        width: 100px;
+        font-family: 'Roboto Slab', Georgia, serif;
+        width: 80px;
         height: 18;
         display: inline;
       }
@@ -85,86 +98,128 @@ body {
 
         margin: 0px;
         padding: 0px;
-        height: 50px;
+        height: 80px;
+        text-align: center;
 
         a:nth-child(1) {
+          border-bottom: 15px solid $yellow;
+        }
+        a:nth-child(1):hover {
           background-color: $yellow;
         }
 
         a:nth-child(2) {
+          border-bottom: 15px solid $mint;
+        }
+        a:nth-child(2):hover {
           background-color: $mint;
         }
 
         a:nth-child(3) {
+          border-bottom: 15px solid $cyan;
+        }
+        a:nth-child(3):hover {
           background-color: $cyan;
         }
 
         a:nth-child(4) {
+          border-bottom: 15px solid $turquoise;
+        }
+        a:nth-child(4):hover {
           background-color: $turquoise;
         }
 
         a:nth-child(5) {
+          border-bottom: 15px solid $pink;
+        }
+        a:nth-child(5):hover {
           background-color: $pink;
         }
 
         a:nth-child(6) {
+          border-bottom: 15px solid $chartreuse;
+        }
+        a:nth-child(6):hover {
           background-color: $chartreuse;
         }
 
         a:nth-child(7) {
+          border-bottom: 15px solid $light-purple;
+        }
+        a:nth-child(7):hover {
           background-color: $light-purple;
         }
 
         a:nth-child(8) {
+          border-bottom: 15px solid $hot-pink;
+        }
+        a:nth-child(8):hover {
           background-color: $hot-pink;
         }
 
         a:nth-child(9) {
+          border-bottom: 15px solid $purple;
+        }
+        a:nth-child(9):hover {
           background-color: $purple;
         }
 
-        a {
 
+        a {
+          background-color: $slate;
           color: white;
-          padding: 20px;
+          padding: 0px;
           margin: 0px;
           width: 10%;
-          height: 50px;
-          color: white;
-          font-weight: bold;
+          height: 80px;
           text-decoration: none;
-          text-transform: uppercase;
-          letter-spacing: -1px;
-          font-size: 12ypx;
+          font-size: 16px;
+          line-height: 65px;
           float:left;
+          font-family: 'Raleway', Helvetica, Arial, sans-serif;
+          text-transform: uppercase;
+          font-weight: 400;
         
         }
 
         a:hover {
-          background-color: $slate; 
+          color: $slate;
+          font-weight: 600;
         }
 
       }
 
     }
 
+/*    header:after {
+      font-family: FontAwesome;
+      font-weight: normal;
+      font-style: normal;
+      content: "\f0a6";
+      color: white;
+      font-size: 36px;
+      text-shadow: 1px 1px 1 px $slate;
+      text-align: center;
+    }
+*/
     .main {
       position: relative;
-      padding: 40px;
+      padding: 0px 40px 40px 40px;
       width: 50%;
-
 
       a {
         color: $slate;
         text-decoration: none;
         font-weight: normal;
       }
-
+    
       a:hover {
-        color: #dc3a30;
+        color: $red;
       }
 
       #gifdex {
+
+        padding: 0px;
 
         li {
           display: inline-block;
