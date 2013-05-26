@@ -7,7 +7,7 @@ $dark-red: #a11a1e;
 
 $fuschia: #a11e7b;
 $royal-purple: #313a71;
-$yellow: #f9f203;
+$yellow: #e7d400;
 $mint: #9fd1ce;
 $cyan: #01aaed;
 $turquoise: #01a38c;
@@ -71,27 +71,24 @@ body {
         h1 {
           font-size: 28px;
           line-height: 65px;
+          text-indent: -5px;
           text-transform: none;
-          text-indent: 10px;
+          text-align: center;
           margin: 0px;
           position: relative;
-          color: white;
           width:auto;
           height: auto;
-          font-family: 'Pacifico', serif;
-        }
-      }
 
-      h2 {
-        font-size: 18px;
-        background-color: $royal-purple;
-        color: white;
-        margin: 0px;
-        padding: 20px;
-        font-family: 'Roboto Slab', Georgia, serif;
-        width: 80px;
-        height: 18;
-        display: inline;
+          a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Pacifico', serif;
+          }
+        }
+        h1:hover > a {
+          text-shadow: 0px -1px 0px rgba(0,0,0,0.5);
+        }
+
       }
 
       #nav {
@@ -102,66 +99,66 @@ body {
         text-align: center;
 
         a:nth-child(1) {
-          border-bottom: 15px solid $yellow;
+          border-bottom: 15px solid $royal-purple;
         }
         a:nth-child(1):hover {
-          background-color: $yellow;
+          background-color: $royal-purple;
         }
 
         a:nth-child(2) {
-          border-bottom: 15px solid $mint;
+          border-bottom: 15px solid $yellow;
         }
         a:nth-child(2):hover {
-          background-color: $mint;
+          background-color: $yellow;
         }
 
         a:nth-child(3) {
-          border-bottom: 15px solid $cyan;
+          border-bottom: 15px solid $mint;
         }
         a:nth-child(3):hover {
-          background-color: $cyan;
+          background-color: $mint;
         }
 
         a:nth-child(4) {
-          border-bottom: 15px solid $turquoise;
+          border-bottom: 15px solid $cyan;
         }
         a:nth-child(4):hover {
-          background-color: $turquoise;
+          background-color: $cyan;
         }
 
         a:nth-child(5) {
-          border-bottom: 15px solid $pink;
+          border-bottom: 15px solid $turquoise;
         }
         a:nth-child(5):hover {
-          background-color: $pink;
+          background-color: $turquoise;
         }
 
         a:nth-child(6) {
-          border-bottom: 15px solid $chartreuse;
+          border-bottom: 15px solid $pink;
         }
         a:nth-child(6):hover {
-          background-color: $chartreuse;
+          background-color: $pink;
         }
 
         a:nth-child(7) {
-          border-bottom: 15px solid $light-purple;
+          border-bottom: 15px solid $chartreuse;
         }
         a:nth-child(7):hover {
-          background-color: $light-purple;
+          background-color: $chartreuse;
         }
 
         a:nth-child(8) {
-          border-bottom: 15px solid $hot-pink;
+          border-bottom: 15px solid $light-purple;
         }
         a:nth-child(8):hover {
-          background-color: $hot-pink;
+          background-color: $light-purple;
         }
 
         a:nth-child(9) {
-          border-bottom: 15px solid $purple;
+          border-bottom: 15px solid $hot-pink;
         }
         a:nth-child(9):hover {
-          background-color: $purple;
+          background-color: $hot-pink;
         }
 
 
@@ -183,7 +180,8 @@ body {
         }
 
         a:hover {
-          color: $slate;
+          color: white;
+          text-shadow: 0px -1px 1px rgba(0,0,0,0.3);
           font-weight: 600;
         }
 
@@ -191,17 +189,6 @@ body {
 
     }
 
-/*    header:after {
-      font-family: FontAwesome;
-      font-weight: normal;
-      font-style: normal;
-      content: "\f0a6";
-      color: white;
-      font-size: 36px;
-      text-shadow: 1px 1px 1 px $slate;
-      text-align: center;
-    }
-*/
     .main {
       position: relative;
       padding: 0px 40px 40px 40px;
@@ -210,11 +197,12 @@ body {
       a {
         color: $slate;
         text-decoration: none;
-        font-weight: normal;
+        font-weight: 400;
       }
     
       a:hover {
         color: $red;
+        font-weight: 500;
       }
 
       #gifdex {
