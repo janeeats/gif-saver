@@ -10,15 +10,24 @@
 
 <p>
   <b>Folders:</b>
-  <ul>
-    <% @user.folders.each do |folder| %>
-      <li><%= link_to folder.name, folder %></li>
-    <% end %>
-  </ul>
+  <% if @user.folders.empty? %>
+    You currently don't have any folders. <%= link_to "Go make one!", new_folder_path %>
+  <% else %>
+    <ul>
+      <% @user.folders.each do |folder| %>
+        <li><%= link_to folder.name, folder %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </p>
 
 <p>
-  <%= link_to "Enable Posting Gifs to Facebook", "/auth/facebook" %>
+  <b>Connected Networks:</b>
+  <% if @user.has_identity?("facebook") %>
+    Yay! You can post your gifs to Facebook.
+  <% else %>
+    <%= link_to "Enable Posting Gifs to Facebook", "/auth/facebook" %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

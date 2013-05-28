@@ -1,14 +1,20 @@
 class User < ActiveRecord::Base
   has_secure_password
   attr_accessible :email, :password, :password_confirmation, :username, :folders
+
+  validates :email, :password, :password_confirmation, :username, :presence => true, :on => :create
   validates_uniqueness_of :email, :username
 
   has_many :folders
 
   has_many :identities
+  
+  def slug
+    username.downcase.gsub(" ", "-")  
+  end
 
-  def owner?(folder)
-    true if self.id == folder.user_id
+  def to_param
+    "#{id}-#{slug}"
   end
 
   def gifs
