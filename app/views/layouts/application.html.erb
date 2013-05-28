@@ -22,7 +22,7 @@
         <%= link_to "My Folders", folders_path %>
         <%= link_to "Add Folder", new_folder_path %>
         <% if current_user %>
-          <%= link_to "Settings", edit_user_path(current_user) %>
+          <%= link_to "Settings", current_user %>
           <%= link_to "Log Out", log_out_path %>
         <% else %>
           <%= link_to "Sign Up", sign_up_path %>

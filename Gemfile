@@ -35,5 +35,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'paperclip'
-gem 'aws-sdk'
 gem 'figaro'
+gem 'aws-sdk'
+gem 'omniauth-facebook'
+gem 'koala'
