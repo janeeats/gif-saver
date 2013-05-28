@@ -5,15 +5,18 @@
 
 <% unless @gif.file.url.nil? %> 
   <p>
-    <b>File via Paperclip:</b>
     <img src="<%= @gif.file.url %>">
   </p>
 <% end %> 
 
 <p>
   <b>Caption:</b>
-  <%= @gif.caption %>
+  <%= @gif.caption %> (<%= link_to 'Edit', edit_gif_path(@gif) %>)
+
 </p>
 
-<%= link_to 'Edit', edit_gif_path(@gif) %> |
+<p>
+  <%= link_to "Post To Facebook", facebook_post_path(@gif) %>
+</p>
+
 <%= link_to 'Back', gifs_path %>

@@ -23,10 +23,8 @@ class Gif < ActiveRecord::Base
     self.file_remote_url.split("/").last
   end
 
-  def post_to_facebook(caption)
-    if @current_user.has_identity?("facebook")
-      @facebook.put_wall_post(caption , {:link => self.file.url})
-    end
+  def post_to_facebook(user, caption)
+    user.facebook.put_wall_post(caption , {:link => self.file.url})
   end
 
 end

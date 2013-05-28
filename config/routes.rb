@@ -1,5 +1,7 @@
 Gifsaver::Application.routes.draw do
 
+  get 'gifs/:id/facebook_post' => 'gifs#facebook', :as => "facebook_post"
+
   match 'auth/facebook/callback' => 'sessions#facebook'
   match 'auth/failure' => redirect('/')
 
