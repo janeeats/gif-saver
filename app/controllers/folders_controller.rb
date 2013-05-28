@@ -1,7 +1,7 @@
 class FoldersController < ApplicationController
 
   def index
-    @folders = Folder.all
+    @folders = current_user.folders
 
     respond_to do |format|
       format.html # index.html.erb

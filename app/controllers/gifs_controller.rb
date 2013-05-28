@@ -1,7 +1,7 @@
 class GifsController < ApplicationController
 
   def index
-    @gifs = Gif.all
+    @gifs = current_user.gifs
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,7 +45,7 @@ class GifsController < ApplicationController
 
     respond_to do |format|
       if @gif.update_attributes(params[:gif])
-        format.html { redirect_to gifs_url, notice: 'Gif was successfully updated.' }
+        format.html { redirect_to @gif, notice: 'Gif was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -61,6 +61,16 @@ class GifsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to gifs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def facebook
+    @gif = Gif.find(params[:id])
+    if @current_user.has_identity?("facebook")    
+      @gif.post_to_facebook(@current_user, @gif.caption)
+      redirect_to @gif, :notice => 'Posted to Facebook!'
+    else
+      redirect_to @current_user, :notice => 'Please enable uploads to Facebook.' 
     end
   end
 
