@@ -5,25 +5,27 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700,100|Raleway:100,200,300,400,500,600,700,800,900|Pacifico' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <header>
       <div class="logobox">
-        <h1>Gifest</h1>
+        <h1><%= link_to "Gifest", gifs_path %></h1>
       </div>
       <!-- <h2>Get your GIF game up.</h2> -->
 
       <div id="nav">
-        <%= link_to "Home", gifs_path %>
+        <%= link_to "My Gifs", gifs_path %>
         <%= link_to "Add Gif", new_gif_path %>
         <%= link_to "My Folders", folders_path %>
-        <%= link_to "Create Folder", new_folder_path %>
-        <%= link_to "Settings", edit_user_path(current_user) %>
+        <%= link_to "Add Folder", new_folder_path %>
         <% if current_user %>
+          <%= link_to "Settings", current_user %>
           <%= link_to "Log Out", log_out_path %>
-          <% else %>
+        <% else %>
+          <%= link_to "Sign Up", sign_up_path %>
           <%= link_to "Login", log_in_path %>
         <% end %>
         <%= link_to "", "#" %>
@@ -33,10 +35,6 @@
 
       <div class="clear"></div>
  
-      <% unless current_user %>            
-        <%= link_to "Sign Up", sign_up_path %> |
-      <% end %>
-
     </header>
 
     <section id="main" class="main">
