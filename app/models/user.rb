@@ -19,5 +19,13 @@ class User < ActiveRecord::Base
     identity_array = self.identities.collect {|identity| identity.provider}
     identity_array.include?(auth_provider)
   end
+
+  def facebook_token
+    identities.find_by_provider("facebook").token
+  end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(facebook_token)
+  end
   
 end
