@@ -1,23 +1,23 @@
-<h1>Listing folders</h1>
+<h1>My Folders</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% unless @folders.empty? %>
 
-<% @folders.each do |folder| %>
-  <tr>
-    <td><%= folder.name %></td>
-    <td><%= link_to 'Show', folder %></td>
-    <td><%= link_to 'Edit', edit_folder_path(folder) %></td>
-    <td><%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <ul id="folders">
+      <% @folders.each do |folder| %>
+      <li>
+        <%= link_to folder.name, folder %> <br />
+        <%= link_to 'Edit', edit_folder_path(folder) %> | 
+        <%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+      <% end %>
+    </ul>
 
-<br />
+  <% else %>
 
-<%= link_to 'New Folder', new_folder_path %>
+    <p>You currently don't have any folders.</p>
+
+  <% end %>
+
+  <p><%= link_to 'Create a Folder', new_folder_path %></p>
+
+

@@ -1,7 +1,7 @@
 class GifsController < ApplicationController
 
   def index
-    @gifs = Gif.all
+    @gifs = current_user.gifs
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,7 +45,7 @@ class GifsController < ApplicationController
 
     respond_to do |format|
       if @gif.update_attributes(params[:gif])
-        format.html { redirect_to gifs_url, notice: 'Gif was successfully updated.' }
+        format.html { redirect_to @gif, notice: 'Gif was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

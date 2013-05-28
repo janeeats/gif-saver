@@ -1,13 +1,18 @@
-<h1>Gifs Index</h1>
+<h1>My Gifs</h1>
 
-  <ul id="gifdex">
-    <% @gifs.each do |gif| %>
-    <li>
-      <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>">
-        <img src="<%= gif.file.url(:thumb) %>" />
-      </a><br />
-      <%= link_to 'Edit', edit_gif_path(gif) %> | 
-      <%= link_to 'Destroy', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-    <% end %>
-  </ul>
+  <% unless @gifs.empty? %>
+    <ul id="gifdex">
+      <% @gifs.each do |gif| %>
+      <li>
+        <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>">
+          <img src="<%= gif.file.url(:thumb) %>" />
+        </a><br />
+        <%= link_to 'Edit', edit_gif_path(gif) %> | 
+        <%= link_to 'Destroy', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>You currently don't have any gifs.</p>
+    <%= link_to 'Upload A Gif', new_gif_path %>
+  <% end %>
