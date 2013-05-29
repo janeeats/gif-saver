@@ -13,16 +13,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :folder_id %><br />
-    <%= f.select :folder_id, current_user.folders.collect {|folder| [folder.name, folder.id]}, {:prompt => 'Select Folder'} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :caption %><br />
-    <%= f.text_field :caption %>
+    Store this gif under 
+    <label>
+      <%= f.select :folder_id, current_user.folders.collect {|folder| [folder.name, folder.id]} %>
+      <span>folder</span>
+    </label>
+    and update the caption to display 
+    <label>
+      <%= f.text_field :caption %>
+      <span>caption</span>
+    </label>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'boom' %>
   </div>
 <% end %>

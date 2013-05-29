@@ -1,0 +1,23 @@
+  <div class="field">
+    This gif can be downloaded from 
+    <label>
+      <%= f.text_field :file_remote_url %>
+      <span>remote url</span>
+    </label>
+  </div>
+
+  <div class="field">
+    or uploaded from my files 
+    <label>
+      <%= f.file_field :file %>
+      <span>file</span>
+    </label>
+  </div>
+
+  <div class="field">
+    with a default default caption: 
+    <label>
+      <%= f.text_field :caption %>
+      <span>caption</span>
+    </label>
+  </div>

@@ -4,15 +4,22 @@
     <ul id="gifdex">
       <% @gifs.each do |gif| %>
       <li>
-        <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>">
+        <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
           <img src="<%= gif.file.url(:thumb) %>" />
         </a><br />
+        <%= link_to 'View', gif %> | 
         <%= link_to 'Edit', edit_gif_path(gif) %> | 
-        <%= link_to 'Destroy', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
       </li>
       <% end %>
     </ul>
   <% else %>
+    <% if @folders.empty? %>    
+      <p>You currently don't have any folders.</p>
+      <%= link_to 'Create a Folder', new_folder_path %>
+    <% end %>
+
     <p>You currently don't have any gifs.</p>
     <%= link_to 'Upload A Gif', new_gif_path %>
+
   <% end %>
