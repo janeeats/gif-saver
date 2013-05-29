@@ -1,25 +1,30 @@
-<h1>My Gifs</h1>
+<% unless @gifs.empty? %>
+  
+  <h1 class="editable">My Gifs</h1>
+  <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Gif'), new_gif_path %></p>
 
-  <% unless @gifs.empty? %>
-    <ul id="gifdex">
-      <% @gifs.each do |gif| %>
-      <li>
-        <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
-          <img src="<%= gif.file.url(:thumb) %>" />
-        </a><br />
-        <%= link_to 'View', gif %> | 
-        <%= link_to 'Edit', edit_gif_path(gif) %> | 
-        <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <% if @folders.empty? %>    
-      <p>You currently don't have any folders.</p>
-      <%= link_to 'Create a Folder', new_folder_path %>
+  <ul class="gifdex">
+    <% @gifs.each do |gif| %>
+    <li>
+      <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
+        <img src="<%= gif.file.url(:thumb) %>" />
+      </a><br />
+      <%= link_to 'View', gif %> | 
+      <%= link_to 'Edit', edit_gif_path(gif) %> | 
+      <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
     <% end %>
+  </ul>
 
-    <p>You currently don't have any gifs.</p>
-    <%= link_to 'Upload A Gif', new_gif_path %>
+<% else %>
 
+  <% if @folders.empty? %>    
+
+    <%= render :partial => 'folders/yay' %>
+
+    <hr />
   <% end %>
+
+    <%= render :partial => 'gifs/yay' %>
+
+<% end %>
