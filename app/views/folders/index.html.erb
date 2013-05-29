@@ -1,13 +1,14 @@
-<h1>My Folders</h1>
+<h1 class="editable">My Folders</h1>
+<p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Folder'), new_folder_path %></p>
 
   <% unless @folders.empty? %>
 
     <ul id="folders">
       <% @folders.each do |folder| %>
       <li>
-        <%= link_to folder.name, folder %> <br />
-        <%= link_to 'Edit', edit_folder_path(folder) %> | 
-        <%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <h2><%= link_to folder.name, folder %> <br /></h2>
+        <%= link_to raw('<i class="icon-edit"></i> Rename'), edit_folder_path(folder) %> &nbsp; | &nbsp;
+        <%= link_to raw('<i class="icon-trash"></i> Delete'), folder, method: :delete, data: { confirm: 'Are you sure?' } %>
       </li>
       <% end %>
     </ul>
@@ -17,7 +18,3 @@
     <p>You currently don't have any folders.</p>
 
   <% end %>
-
-  <p><%= link_to 'Create a Folder', new_folder_path %></p>
-
-

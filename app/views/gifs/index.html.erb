@@ -1,4 +1,5 @@
-<h1>My Gifs</h1>
+<h1 class="editable">My Gifs</h1>
+<p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Gif'), new_gif_path %></p>
 
   <% unless @gifs.empty? %>
     <ul id="gifdex">

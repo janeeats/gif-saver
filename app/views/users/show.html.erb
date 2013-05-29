@@ -1,28 +1,16 @@
 <p>
-  <b>Username:</b>
+  <strong>Username:</strong>
   <%= @user.username %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
-<p>
-  <b>Folders:</b>
-  <% if @user.folders.empty? %>
-    You currently don't have any folders. <%= link_to "Go make one!", new_folder_path %>
-  <% else %>
-    <ul>
-      <% @user.folders.each do |folder| %>
-        <li><%= link_to folder.name, folder %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</p>
 
 <p>
-  <b>Connected Networks:</b>
+  <strong>Connected Networks:</strong>
   <% if @user.has_identity?("facebook") %>
     Yay! You can post your gifs to Facebook.
   <% else %>
@@ -30,5 +18,4 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>
