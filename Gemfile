@@ -18,6 +18,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'exception_notification'
 end
 
 # Gems used only for assets and not required
