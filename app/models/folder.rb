@@ -7,11 +7,11 @@ class Folder < ActiveRecord::Base
   accepts_nested_attributes_for :gifs
 
   def slug
-    name.downcase.gsub(" ", "-").gsub("!", "").gsub(".", "").gsub("'", "").gsub("?", "")
+    name
   end
 
   def to_param
-    "#{id}-#{slug}"
+    "#{id}-#{slug}".parameterize
   end
 
 end

@@ -11,11 +11,11 @@ class Gif < ActiveRecord::Base
   has_attached_file :file, :styles => { :thumb => "150x160#" }
 
   def slug
-    caption.downcase.gsub(" ", "-").gsub("!", "").gsub("*", "").gsub(".", "").gsub("*", "")
+    caption
   end
 
   def to_param
-    "#{id}-#{slug}"
+    "#{id}-#{slug}".parameterize
   end
 
   def file_url_provided?

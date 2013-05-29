@@ -10,11 +10,11 @@ class User < ActiveRecord::Base
   has_many :identities
   
   def slug
-    username.downcase.gsub(" ", "-")  
+    username
   end
 
   def to_param
-    "#{id}-#{slug}"
+    "#{id}-#{slug}".parameterize
   end
 
   def gifs
