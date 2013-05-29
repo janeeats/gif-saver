@@ -1,22 +1,22 @@
-<p>
-  <b>Folder:</b>
-  <%= link_to @gif.folder.name, @gif.folder %>
-</p>
-
-<% unless @gif.file.url.nil? %> 
-  <p>
-    <img src="<%= @gif.file.url %>">
-  </p>
-<% end %> 
+<h1 class="editable"><%= @gif.caption %></h1>
+<p class="editablelink"><%= link_to raw('<i class="icon-edit"></i> Edit Caption'), edit_gif_path(@gif) %></p>
 
 <p>
-  <b>Caption:</b>
-  <%= @gif.caption %> (<%= link_to 'Edit', edit_gif_path(@gif) %>)
-
+  <img src="<%= @gif.file.url %>">
 </p>
 
-<p>
-  <%= link_to "Post To Facebook", facebook_post_path(@gif) %>
+<p class="usp">
+  <%= link_to "Post To Facebook", facebook_post_path(@gif), :class => 'primary' %>
 </p>
 
-<%= link_to 'Back', gifs_path %>
+<p class="breadcrumb">
+
+  <a href="<%= folders_path %>">
+    <i class="icon-folder-close"></i> My Folders</a> 
+
+  / 
+  
+  <a href="<%= folder_path(@gif.folder) %>">
+    <i class="icon-folder-open"></i> <%= @gif.folder.name %></a> 
+
+</p>

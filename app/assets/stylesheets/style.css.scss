@@ -64,7 +64,7 @@ body {
         margin: 0px;
         border-bottom: 15px solid $fuschia;
         background-color: $slate;
-        width: 10%;
+        width: 12%;
         height: 80px;
         float:left;
 
@@ -167,7 +167,7 @@ body {
           color: white;
           padding: 0px;
           margin: 0px;
-          width: 10%;
+          width: 11%;
           height: 80px;
           text-decoration: none;
           font-size: 16px;
@@ -194,20 +194,72 @@ body {
       padding: 0px 40px 40px 40px;
       width: 50%;
 
+      #notice {
+        padding: 12px 36px;
+        background-color: $turquoise;
+        color: white;
+      }  
+
+      .breadcrumb {
+      }
+
+      p {
+        margin: 36px 0px;
+      }
+
       a {
         color: $slate;
         text-decoration: none;
-        font-weight: 400;
+        font-weight: 600;
       }
     
       a:hover {
         color: $red;
-        font-weight: 500;
+        border-bottom: 1px dashed;
+      }
+
+      a.giflink:hover {
+        border-bottom: 0px;
+        opacity: 0.8;
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+      }
+
+      .primary {
+        border: 0px;
+        background: $red;
+        padding: 12px 36px;
+        transition: background 0.3s ease;
+        margin: 24px 0px; 
+        color: white;
+        text-transform: uppercase;
+        font-size: 16px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        line-height: 42px;
+        font-size: 18px;
+      }
+
+      .primary:hover {
+        background: $slate;
+        color: white;
+        transition: background 0.3s ease;
+        border-bottom: 0px; 
+      }
+
+      .editable {
+        margin-bottom: 0px;
+      }
+      
+      .editablelink {
+        margin-top: 0px;
       }
 
       #gifdex {
-
-        padding: 0px;
+        margin: 30px 0px;
+        padding: 30px 0px;
+        border-top: 1px dashed $medium-gray;
+        border-bottom: 1px dashed $medium-gray;
 
         li {
           display: inline-block;
@@ -216,6 +268,87 @@ body {
 
       }
 
+      .field {
+        margin: 15px 0px;
+
+        label {
+          white-space: nowrap;
+          padding: 0 0 .5em;
+          display: -moz-inline-stack;
+          display: inline-block;
+          vertical-align: top;
+          zoom: 1;
+          text-align: center;
+          position: relative;
+
+          span {
+            font-size: .8em;
+            line-height: 1em;
+            opacity: .7;
+            filter: alpha(opacity = 70);
+          }
+
+        }
+
+        select {
+          background: transparent;
+          outline: 0;
+          display: block;
+          -webkit-font-smoothing: antialiased;
+          font-family: 'Raleway', Helvetica, Arial, sans-serif;
+          font-weight: 600;
+        }
+
+        input {
+          background: transparent;
+          border-top: none;
+          border-right: none;
+          border-bottom: 1px dashed $slate;
+          border-left: none;
+          display: block;
+          -webkit-font-smoothing: antialiased;
+          font-family: 'Raleway', Helvetica, Arial, sans-serif;
+          font-weight: 600;
+          outline: none;
+        }
+
+        input[type=file] {
+          background: url('/assets/browse-icon.png') top 5px no-repeat; 
+          text-indent: 100%; 
+          white-space: nowrap; 
+          overflow: hidden;
+        }
+
+        input[type=file]:hover {
+          cursor: pointer;
+        }
+
+      }
+
+      .actions {
+
+        input[type="submit"] {
+          border: none;
+          background: $slate;
+          color: white;
+          font-family: 'Raleway', Helvetica, Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          font-weight: 400;
+          text-transform: uppercase;
+          font-size: 18px;
+          padding: 12px 36px;
+          transition: background 0.3s ease; 
+          margin-top: 30px;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+        }
+
+        input[type="submit"]:hover {
+          background: $red;
+          transition: background 0.3s ease; 
+        }
+      }
     }
   }
 

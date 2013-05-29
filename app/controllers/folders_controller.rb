@@ -20,7 +20,7 @@ class FoldersController < ApplicationController
 
   def new
     @folder = Folder.new
-
+    @gif = @folder.gifs.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @folder }

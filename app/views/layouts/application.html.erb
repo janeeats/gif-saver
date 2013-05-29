@@ -26,9 +26,8 @@
           <%= link_to "Log Out", log_out_path %>
         <% else %>
           <%= link_to "Sign Up", sign_up_path %>
-          <%= link_to "Login", log_in_path %>
+          <%= link_to "Log In", log_in_path %>
         <% end %>
-        <%= link_to "", "#" %>
         <%= link_to "", "#" %>
         <%= link_to "", "#" %>
       </div>
@@ -38,7 +37,9 @@
     </header>
 
     <section id="main" class="main">
-      <p id="notice"><%= notice %></p>
+      <% if notice %>
+        <p id="notice"><%= notice %></p>
+      <% end %>
       <%= yield %>
     </section>
   </div>

@@ -2,7 +2,7 @@ class GifsController < ApplicationController
 
   def index
     @gifs = current_user.gifs
-
+    @folders = current_user.folders
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @gifs }
@@ -15,7 +15,6 @@ class GifsController < ApplicationController
 
   def new
     @gif = Gif.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @gif }
