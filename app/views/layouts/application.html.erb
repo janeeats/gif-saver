@@ -17,10 +17,10 @@
       <!-- <h2>Get your GIF game up.</h2> -->
 
       <div id="nav">
-        <%= link_to "My Gifs", gifs_path %>
-        <%= link_to "Add Gif", new_gif_path %>
-        <%= link_to "My Folders", folders_path %>
         <%= link_to "Add Folder", new_folder_path %>
+        <%= link_to "My Folders", folders_path %>
+        <%= link_to "Add Gif", new_gif_path %>
+        <%= link_to "My Gifs", gifs_path %>
         <% if current_user %>
           <%= link_to "Settings", current_user %>
           <%= link_to "Log Out", log_out_path %>

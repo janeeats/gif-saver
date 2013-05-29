@@ -338,6 +338,11 @@ body {
         margin-left: 24px;
       }
 
+      hr {
+        border: 0;
+        border-bottom: 1px dashed $medium-gray;
+      }
+
       .gifdex, .folders {
         margin: 30px 0px;
         padding: 30px 0px;

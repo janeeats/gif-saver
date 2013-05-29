@@ -2,16 +2,28 @@
 <p class="editablelink"><%= link_to raw('<i class="icon-edit"></i> Rename Folder'), edit_folder_path(@folder) %></p>
 
 <ul class="gifdex">
-  <% @folder.gifs.each do |gif| %>
-  <li>
-    <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
-      <img src="<%= gif.file.url(:thumb) %>" />
-    </a><br />
-    <%= link_to 'View', gif %> | 
-    <%= link_to 'Edit', edit_gif_path(gif) %> | 
-    <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </li>
+  
+  <% if @folder.gifs.empty? %>  
+
+    <%= render :partial => 'gifs/yay' %>
+
+  <% else %>
+
+    <% @folder.gifs.each do |gif| %>
+      <li>
+        <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
+          <img src="<%= gif.file.url(:thumb) %>" />
+        </a><br />
+        <%= link_to 'View', gif %> | 
+        <%= link_to 'Edit', edit_gif_path(gif) %> | 
+        <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+
   <% end %>
+
+
+
 </ul>
 
 <a href="/folders"><i class="icon-folder-open"></i> My Folders</a>
