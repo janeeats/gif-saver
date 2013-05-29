@@ -1,18 +1,17 @@
-<p>
-  <b>Name:</b>
-  <%= @folder.name %>
-</p>
+<h1 class="editable"><%= @folder.name %></h1>
+<p class="editablelink"><%= link_to raw('<i class="icon-edit"></i> Rename Folder'), edit_folder_path(@folder) %></p>
 
-<p>
-  <b>Gifs:</b>
-  <ul>
-    <% @folder.gifs.each do |gif| %>
-      <li><img src="<%= gif.file.url %>"></li>
-    <% end %>
-  </ul>
+<ul id="gifdex">
+  <% @folder.gifs.each do |gif| %>
+  <li>
+    <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
+      <img src="<%= gif.file.url(:thumb) %>" />
+    </a><br />
+    <%= link_to 'View', gif %> | 
+    <%= link_to 'Edit', edit_gif_path(gif) %> | 
+    <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
+  <% end %>
+</ul>
 
-</p>
-
-
-<%= link_to 'Edit', edit_folder_path(@folder) %> |
-<%= link_to 'Back', folders_path %>
+<a href="/folders"><i class="icon-folder-open"></i> My Folders</a>
