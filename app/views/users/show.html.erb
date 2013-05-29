@@ -1,34 +1,15 @@
+<h2>My Info</h2>
 <p>
-  <b>Username:</b>
-  <%= @user.username %>
+  I go by the username of <strong><%= @user.username %></strong> and my email is <strong><%= @user.email %></strong>.<br />
+  <%= link_to raw('<i class="icon-edit"></i> Edit Info or Update Password'), edit_user_path(@user), :class => 'highlight' %>
 </p>
 
+<h2>Set me up</h2>
 <p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Folders:</b>
-  <% if @user.folders.empty? %>
-    You currently don't have any folders. <%= link_to "Go make one!", new_folder_path %>
-  <% else %>
-    <ul>
-      <% @user.folders.each do |folder| %>
-        <li><%= link_to folder.name, folder %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</p>
-
-<p>
-  <b>Connected Networks:</b>
+  <strong>Connected Networks:</strong>
   <% if @user.has_identity?("facebook") %>
     Yay! You can post your gifs to Facebook.
   <% else %>
-    <%= link_to "Enable Posting Gifs to Facebook", "/auth/facebook" %>
+    <%= link_to "Enable Posting Gifs to Facebook", "/auth/facebook", :class => 'highlight' %>
   <% end %>
 </p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
