@@ -1,13 +1,20 @@
 Gifsaver::Application.configure do
 
-  # config.paperclip_defaults = {
-  #   :storage => :s3,
-  #   :s3_credentials => {
-  #     :bucket => ENV['AWS_BUCKET'],
-  #     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-  #     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  #   }
-  # }
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+
+  Whatever::Application.config.middleware.use ExceptionNotifier,
+    :email => {
+      :email_prefix => "Gifest",
+      :sender_address => "jane.vora@flatironschool.com",
+      :exception_recipients => "jane.vora@gmail.com"
+    }
 
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -59,7 +66,8 @@ Gifsaver::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable threaded mode
   # config.threadsafe!
