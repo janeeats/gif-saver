@@ -13,6 +13,12 @@
       <% end %>
     </ul>
   <% else %>
+    <% if @folders.empty? %>    
+      <p>You currently don't have any folders.</p>
+      <%= link_to 'Create a Folder', new_folder_path %>
+    <% end %>
+
     <p>You currently don't have any gifs.</p>
     <%= link_to 'Upload A Gif', new_gif_path %>
+
   <% end %>

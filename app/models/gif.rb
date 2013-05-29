@@ -2,7 +2,7 @@ class Gif < ActiveRecord::Base
 
   attr_accessible :file, :folder_id, :file_remote_url, :caption
 
-  validates :caption, :folder_id, :presence => true, :on => :create
+  validates :caption, :presence => true, :on => :create
   validates_presence_of :file, :unless => :file_remote_url?
   validates_presence_of :file_remote_url, :unless => :file?
 
@@ -11,7 +11,7 @@ class Gif < ActiveRecord::Base
   has_attached_file :file, :styles => { :thumb => "150x160#" }
 
   def slug
-    caption.downcase.gsub(" ", "-").gsub("!", "").gsub("*", "")
+    caption.downcase.gsub(" ", "-").gsub("!", "").gsub("*", "").gsub(".", "").gsub("*", "")
   end
 
   def to_param
