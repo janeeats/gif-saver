@@ -2,19 +2,27 @@
 <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Gif'), new_gif_path %></p>
 
   <% unless @gifs.empty? %>
-    <ul id="gifdex">
-      <% @gifs.each do |gif| %>
-      <li>
-        <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
-          <img src="<%= gif.file.url(:thumb) %>" />
-        </a><br />
-        <%= link_to 'View', gif %> | 
-        <%= link_to 'Edit', edit_gif_path(gif) %> | 
-        <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
+  
+    <div id="accordion">  
+      <% @folders.each do |folder| %>
+        <h2><%= folder.name %></h2>
+          <ul class="gifdex">
+            <% folder.gifs.each do |gif| %>
+            <li>
+              <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
+                <img src="<%= gif.file.url(:thumb) %>" />
+              </a><br />
+              <%= link_to 'View', gif %> | 
+              <%= link_to 'Edit', edit_gif_path(gif) %> | 
+              <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </li>
+            <% end %>
+          </ul>
       <% end %>
-    </ul>
+    </div>
+
   <% else %>
+
     <% if @folders.empty? %>    
       <p>You currently don't have any folders.</p>
       <%= link_to 'Create a Folder', new_folder_path %>

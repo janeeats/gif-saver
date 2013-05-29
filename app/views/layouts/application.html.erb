@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700,100|Raleway:100,200,300,400,500,600,700,800,900|Pacifico' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600|Pacifico' rel='stylesheet' type='text/css'>
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
@@ -38,7 +38,10 @@
 
     <section id="main" class="main">
       <% if notice %>
-        <p id="notice"><%= notice %></p>
+        <p id="notice">
+          <%= notice %>
+          <%= link_to raw('<i class="icon-remove"></i> '), '#', :class => 'pull-right', :id => 'notice-close' %>
+        </p>
       <% end %>
       <%= yield %>
     </section>

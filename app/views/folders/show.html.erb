@@ -1,7 +1,7 @@
 <h1 class="editable"><%= @folder.name %></h1>
 <p class="editablelink"><%= link_to raw('<i class="icon-edit"></i> Rename Folder'), edit_folder_path(@folder) %></p>
 
-<ul id="gifdex">
+<ul class="gifdex">
   <% @folder.gifs.each do |gif| %>
   <li>
     <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
