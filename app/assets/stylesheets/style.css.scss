@@ -40,11 +40,11 @@ body {
   }
 
   h2 {
-    font-size: 36px;
+    font-size: 28px;
     line-height: 28px;
     text-transform: uppercase;
     margin-bottom: 12px;
-    font-weight: 100;
+    font-weight: 200;
   }
 
   h2 > a {
@@ -292,6 +292,50 @@ body {
       
       .editablelink {
         margin-top: 8px;
+      }
+
+      #accordion > h2 {
+        focus: 0px;
+        outline: none;
+      }
+
+      #accordion > h2:hover {
+        color: $slate;
+        cursor: pointer;
+      }
+
+      #accordion > h2:hover span:before {        
+        content: "\f078";
+      }
+
+      #accordion .ui-icon-triangle-1-s:before {
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 18px;
+        line-height: 28px;
+        content: "\f078";
+        color: $slate;
+        position: relative;
+        top: -2px;
+        margin-right: 8px;
+      }
+
+      #accordion .ui-icon-triangle-1-e:before {
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 18px;
+        line-height: 28px;
+        content: "\f054";
+        color: $slate;
+        position: relative;
+        top: -2px;
+        margin-right: 8px;
+      }
+
+      #accordion > .accordion-contents {
+        margin-left: 24px;
       }
 
       .gifdex, .folders {
