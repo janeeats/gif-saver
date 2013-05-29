@@ -1,5 +1,6 @@
 class GifsController < ApplicationController
-  skip_before_filter :login_required, :except => "show"
+  skip_before_filter :login_required, :only => "show"
+
 
   def index
     @folders = current_user.folders
