@@ -1,5 +1,6 @@
 <h1 class="editable"><%= @folder.name %></h1>
-<p class="editablelink"><%= link_to raw('<i class="icon-edit"></i> Rename Folder'), edit_folder_path(@folder) %></p>
+<p class="editablelink"><%= link_to raw('<i class="icon-edit"></i> Rename Folder'), edit_folder_path(@folder) %> &nbsp; | &nbsp; <%= link_to raw('<i class="icon-plus-sign"></i> Add Gif'), new_user_gif_path(current_user) %></p>
+
 
 <ul class="gifdex">
   

@@ -10,13 +10,8 @@ class Gif < ActiveRecord::Base
 
   has_attached_file :file, :styles => { :thumb => "150x160#" }
 
-  def slug
-    caption.downcase.gsub(" ", "-").gsub("!", "").gsub("*", "").gsub(".", "").gsub("*", "")
-  end
-
-  def to_param
-    "#{id}-#{slug}"
-  end
+  extend FriendlyId
+  friendly_id :caption, :use => [:slugged, :history]
 
   def file_url_provided?
     !self.file_remote_url.blank?
@@ -37,6 +32,10 @@ class Gif < ActiveRecord::Base
 
   def post_to_facebook(user, caption)
     user.facebook.put_wall_post(caption , {:link => self.file.url})
+  end
+
+  def editable_by?(user)
+
   end
 
 end

@@ -9,13 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :identities
   
-  def slug
-    username.downcase.gsub(" ", "-")  
-  end
-
-  def to_param
-    "#{id}-#{slug}"
-  end
+  extend FriendlyId
+  friendly_id :username
 
   def gifs
     self.folders.collect { |folder| folder.gifs }.flatten
