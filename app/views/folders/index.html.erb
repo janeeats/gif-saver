@@ -1,13 +1,13 @@
 <% unless @folders.empty? %>
 
-  <h1 class="editable">My Folders</h1>
+  <h1 class="editable">Folders of <%= @user.username %></h1>
   <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Folder'), new_user_folder_path %></p>
 
   <div id="accordion">  
     <% @folders.each do |folder| %>
       <h2><%= folder.name %></h2>
       <div class="accordion-contents">
-        <%= link_to 'View', folder %> &nbsp; | &nbsp; 
+        <%= link_to 'View', user_folder_path(@user, folder) %> &nbsp; | &nbsp; 
         <%= link_to raw('<i class="icon-edit"></i> Rename'), edit_folder_path(folder) %> &nbsp; | &nbsp;
         <%= link_to raw('<i class="icon-trash"></i> Delete'), folder, method: :delete, data: { confirm: 'Are you sure?' } %>
           <ul class="gifdex">
@@ -20,10 +20,10 @@
             
               <% folder.gifs.each do |gif| %>
               <li>
-                <a href="<%= gif_path(gif) %>" title="<%= gif.caption %>" class="giflink">
+                <a href="<%= user_gif_path(@user, gif) %>" title="<%= gif.caption %>" class="giflink">
                   <img src="<%= gif.file.url(:thumb) %>" />
                 </a><br />
-                <%= link_to 'View', gif %> | 
+                <%= link_to 'View', user_gif_path(@user, gif) %> | 
                 <%= link_to 'Edit', edit_gif_path(gif) %> | 
                 <%= link_to 'Trash', gif, method: :delete, data: { confirm: 'Are you sure?' } %>
               </li>
