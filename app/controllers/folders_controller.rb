@@ -68,7 +68,7 @@ class FoldersController < ApplicationController
     @folder.destroy
 
     respond_to do |format|
-      format.html { redirect_to folders_url }
+      format.html { redirect_to user_folders_url(@current_user) }
       format.json { head :no_content }
     end
   end

@@ -30,7 +30,7 @@ class GifsController < ApplicationController
     @gif.download_remote_gif(params[:gif][:file_remote_url])
     respond_to do |format|
       if @gif.save
-        format.html { redirect_to gifs_url, notice: 'Gif was successfully created.' }
+        format.html { redirect_to @gif, notice: 'Gif was successfully created.' }
         format.json { render json: @gif, status: :created, location: @gif }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class GifsController < ApplicationController
     @gif.destroy
 
     respond_to do |format|
-      format.html { redirect_to gifs_url }
+      format.html { redirect_to user_gifs_url(@current_user) }
       format.json { head :no_content }
     end
   end
