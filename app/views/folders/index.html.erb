@@ -1,7 +1,7 @@
 <% unless @folders.empty? %>
 
   <h1 class="editable">My Folders</h1>
-  <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Folder'), new_folder_path %></p>
+  <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Folder'), new_user_folder_path %></p>
 
   <div id="accordion">  
     <% @folders.each do |folder| %>

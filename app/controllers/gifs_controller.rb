@@ -3,8 +3,9 @@ class GifsController < ApplicationController
 
 
   def index
-    @folders = current_user.folders
-    @gifs = current_user.gifs
+    @user = User.find(params[:user_id])
+    @folders = @user.folders
+    @gifs = @user.gifs
     
     respond_to do |format|
       format.html # index.html.erb

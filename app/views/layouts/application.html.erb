@@ -12,15 +12,15 @@
   <div class="container">
     <header>
       <div class="logobox">
-        <h1><%= link_to "Gifest", gifs_path %></h1>
+        <h1><%= link_to "Gifest", user_gifs_path(current_user) %></h1>
       </div>
       <!-- <h2>Get your GIF game up.</h2> -->
 
       <div id="nav">
-        <%= link_to "Add Folder", new_folder_path %>
+        <%= link_to "Add Folder", new_user_folder_path(current_user) %>
         <%= link_to "My Folders", user_folders_path(current_user) %>
-        <%= link_to "Add Gif", new_gif_path(current_user) %>
-        <%= link_to "My Gifs", gifs_path %>
+        <%= link_to "Add Gif", new_user_gif_path(current_user) %>
+        <%= link_to "My Gifs", user_gifs_path(current_user) %>
         <% if current_user %>
           <%= link_to "Settings", current_user %>
           <%= link_to "Log Out", log_out_path %>
