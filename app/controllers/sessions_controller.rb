@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_gifs_path(@current_user), :notice => "Logged in!"
+      redirect_to user_gifs_path(user), :notice => "Logged in!"
     else
       render "new", :notice => "Email or password is invalid"
     end
