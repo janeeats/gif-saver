@@ -1,7 +1,6 @@
 class GifsController < ApplicationController
   skip_before_filter :login_required, :only => "show"
 
-
   def index
     @user = User.find(params[:user_id])
     @folders = @user.folders
@@ -72,9 +71,18 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     if @current_user.has_identity?("facebook")    
       @gif.post_to_facebook(@current_user, @gif.caption)
-      redirect_to @gif, :notice => 'Posted to Facebook!'
+      redirect_to @current_user, :notice => 'Posted to Facebook!'
     else
       redirect_to @current_user, :notice => 'Please enable uploads to Facebook.' 
+    end
+  end
+
+  def superindex
+    @gifs = Gif.all
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @gifs }
     end
   end
 
