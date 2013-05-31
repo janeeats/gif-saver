@@ -34,8 +34,12 @@ class Gif < ActiveRecord::Base
     user.facebook.put_wall_post(caption , {:link => self.file.url})
   end
 
-  def editable_by?(user)
+  def can_maintain_by?(user)
+    true if user == self.folder.user
+  end
 
+  def user
+    self.folder.user
   end
 
 end
