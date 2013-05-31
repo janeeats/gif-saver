@@ -72,7 +72,7 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     if @current_user.has_identity?("facebook")    
       @gif.post_to_facebook(@current_user, @gif.caption)
-      redirect_to @gif, :notice => 'Posted to Facebook!'
+      redirect_to @current_user, :notice => 'Posted to Facebook!'
     else
       redirect_to @current_user, :notice => 'Please enable uploads to Facebook.' 
     end
