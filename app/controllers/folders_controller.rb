@@ -15,7 +15,7 @@ class FoldersController < ApplicationController
     @folder = Folder.find(params[:id])
 
     if request.path != user_folder_path(@user, @folder)
-      redirect_to @folder, :status => :moved_permanently
+      redirect_to user_folder_path(@user, @folder), :status => :moved_permanently
     end
 
     respond_to do |format|
@@ -41,7 +41,7 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       if @folder.save
-        format.html { redirect_to @folder, notice: 'Folder was successfully created.' }
+        format.html { redirect_to user_folder_path(@folder.user, @folder), notice: 'Folder was successfully created.' }
         format.json { render json: @folder, status: :created, location: @folder }
       else
         format.html { render action: "new" }
@@ -55,7 +55,7 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       if @folder.update_attributes(params[:folder])
-        format.html { redirect_to @folder, notice: 'Folder was successfully updated.' }
+        format.html { redirect_to user_folder_path(@folder.user, @folder), notice: 'Folder was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
