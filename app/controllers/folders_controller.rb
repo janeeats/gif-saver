@@ -11,9 +11,10 @@ class FoldersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @folder = Folder.find(params[:id])
 
-    if request.path != folder_path(@folder)
+    if request.path != user_folder_path(@user, @folder)
       redirect_to @folder, :status => :moved_permanently
     end
 

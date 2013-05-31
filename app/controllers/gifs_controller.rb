@@ -14,6 +14,7 @@ class GifsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @gif = Gif.find(params[:id])
   end
 
