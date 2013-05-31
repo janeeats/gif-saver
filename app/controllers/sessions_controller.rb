@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
 
     # Log the authorizing user in.
     current_user = @auth.user
-    redirect_to user_gifs_path(@current_user), :notice => "Thanks for logging in with Facebook, #{current_user.username}."
+    redirect_to user_gifs_path(current_user), :notice => "Thanks for logging in with Facebook, #{current_user.username}."
   end
   
 end
