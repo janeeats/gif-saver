@@ -1,6 +1,8 @@
 <h1>Editing folder</h1>
 
-<%= render 'form' %>
+<%= render 'form_edit' %>
 
-<%= link_to 'Show', @folder %> |
-<%= link_to 'Back', folders_path %>
+<p>
+<%= link_to 'Show', user_folder_path(@folder.user, @folder) %> |
+<%= link_to 'Back', user_folders_path(@folder.user) %>
+</p>

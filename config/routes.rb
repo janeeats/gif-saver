@@ -6,9 +6,12 @@ Gifsaver::Application.routes.draw do
   match 'auth/failure' => redirect('/')
 
   resources :users do
-    resources :gifs, shallow: true
-    resources :folders, shallow: true
+    resources :gifs, only: [:show, :index, :new, :create]
+    resources :folders, only: [:show, :index, :new, :create]
   end
+
+  resources :gifs, only: [:edit, :update, :destroy]
+  resources :folders, only: [:edit, :update, :destroy]
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"

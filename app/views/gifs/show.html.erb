@@ -11,12 +11,12 @@
 
 <p class="breadcrumb">
 
-  <a href="<%= folders_path %>">
-    <i class="icon-folder-close"></i> My Folders</a> 
+  <a href="<%= user_folders_path(@user) %>">
+    <i class="icon-folder-close"></i> <%= @user.username %> </a> 
 
   / 
   
-  <a href="<%= folder_path(@gif.folder) %>">
+  <a href="<%= user_folder_path(@user, @gif.folder) %>">
     <i class="icon-folder-open"></i> <%= @gif.folder.name %></a> 
 
 </p>
