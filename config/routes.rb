@@ -5,14 +5,15 @@ Gifsaver::Application.routes.draw do
   match 'auth/facebook/callback' => 'sessions#facebook'
   match 'auth/failure' => redirect('/')
 
-  resources :gifs
-  resources :folders
+  resources :users do
+    resources :gifs, shallow: true
+    resources :folders, shallow: true
+  end
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
 
-  resources :users, :only => [:new, :create, :show, :edit, :update]
   resources :sessions
 
 

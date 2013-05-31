@@ -1,7 +1,7 @@
 <% unless @gifs.empty? %>
   
   <h1 class="editable">My Gifs</h1>
-  <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Gif'), new_gif_path %></p>
+  <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Gif'), new_user_gif_path(current_user) %></p>
 
   <ul class="gifdex">
     <% @gifs.each do |gif| %>

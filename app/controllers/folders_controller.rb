@@ -1,7 +1,8 @@
 class FoldersController < ApplicationController
 
   def index
-    @folders = current_user.folders
+    @user = User.find(params[:user_id])
+    @folders = @user.folders
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,6 +13,10 @@ class FoldersController < ApplicationController
   def show
     @folder = Folder.find(params[:id])
 
+    if request.path != folder_path(@folder)
+      redirect_to @folder, :status => :moved_permanently
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @folder }
@@ -20,7 +25,6 @@ class FoldersController < ApplicationController
 
   def new
     @folder = Folder.new
-    @gif = @folder.gifs.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @folder }
@@ -64,7 +68,7 @@ class FoldersController < ApplicationController
     @folder.destroy
 
     respond_to do |format|
-      format.html { redirect_to folders_url }
+      format.html { redirect_to user_folders_url(@current_user) }
       format.json { head :no_content }
     end
   end

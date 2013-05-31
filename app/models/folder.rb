@@ -6,12 +6,7 @@ class Folder < ActiveRecord::Base
   has_many :gifs
   accepts_nested_attributes_for :gifs
 
-  def slug
-    name.downcase.gsub(" ", "-").gsub("!", "").gsub(".", "").gsub("'", "").gsub("?", "")
-  end
-
-  def to_param
-    "#{id}-#{slug}"
-  end
+  extend FriendlyId
+  friendly_id :name, :use => [:slugged, :history]
 
 end
