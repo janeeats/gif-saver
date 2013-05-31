@@ -7,6 +7,7 @@
     <% @folders.each do |folder| %>
       <h2><%= folder.name %></h2>
       <div class="accordion-contents">
+        <%= link_to 'View', folder %> &nbsp; | &nbsp; 
         <%= link_to raw('<i class="icon-edit"></i> Rename'), edit_folder_path(folder) %> &nbsp; | &nbsp;
         <%= link_to raw('<i class="icon-trash"></i> Delete'), folder, method: :delete, data: { confirm: 'Are you sure?' } %>
           <ul class="gifdex">

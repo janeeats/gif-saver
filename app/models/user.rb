@@ -9,13 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :identities
   
-  def slug
-    username
-  end
-
-  def to_param
-    "#{id}-#{slug}".parameterize
-  end
+  extend FriendlyId
+  friendly_id :username
 
   def gifs
     self.folders.collect { |folder| folder.gifs }.flatten

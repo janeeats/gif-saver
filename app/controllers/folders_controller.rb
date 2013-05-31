@@ -1,7 +1,8 @@
 class FoldersController < ApplicationController
 
   def index
-    @folders = current_user.folders
+    @user = User.find(params[:user_id])
+    @folders = @user.folders
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,6 +12,10 @@ class FoldersController < ApplicationController
 
   def show
     @folder = Folder.find(params[:id])
+
+    if request.path != folder_path(@folder)
+      redirect_to @folder, :status => :moved_permanently
+    end
 
     respond_to do |format|
       format.html # show.html.erb
