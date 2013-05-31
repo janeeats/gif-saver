@@ -1,0 +1,12 @@
+  <h1 class="editable">Gifs Gifs Gifs</h1>
+
+  <ul class="gifdex">
+    <% @gifs.each do |gif| %>
+    <li>
+      <a href="<%= user_gif_path(gif.user, gif) %>" title="<%= gif.caption %>" class="giflink">
+        <img src="<%= gif.file.url(:thumb) %>" />
+      </a><br />
+      <%= link_to 'View', user_gif_path(gif.user, gif) %> | <%= link_to gif.user.username, user_folders_path(gif.user) %>
+    </li>
+    <% end %>
+  </ul>
