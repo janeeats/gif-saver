@@ -69,9 +69,9 @@ class GifsController < ApplicationController
 
   def destroy
     @gif = Gif.find(params[:id])
-    @gif.destroy
 
     if @gif.is_maintained_by?(@current_user)
+      @gif.destroy
       respond_to do |format|
         format.html { redirect_to user_gifs_url(@current_user) }
         format.json { head :no_content }
