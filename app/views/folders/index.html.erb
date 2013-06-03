@@ -1,6 +1,10 @@
 <% unless @folders.empty? %>
 
-  <h1 class="editable">Folders of <%= @user.username %></h1>
+  <% if @folders.first.is_maintained_by?(@current_user) %>
+    <h1>My Folders</h1>
+  <% else %>
+    <h1 class="editable">Folders of <%= @user.username %></h1>
+  <% end %>
 
   <% if @folders.first.is_maintained_by?(@current_user) %>
     <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Folder'), new_user_folder_path %></p>

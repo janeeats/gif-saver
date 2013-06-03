@@ -1,7 +1,11 @@
 <% unless @gifs.empty? %>
   
-  <h1 class="editable">Gifs Added By <%= @user.username %></h1>
-    
+  <% if @folders.first.is_maintained_by?(@current_user) %>
+    <h1>My Gifs</h1>
+  <% else %>
+    <h1 class="editable">Gifs Added By <%= @user.username %></h1>
+  <% end %>
+
     <% if @gifs.first.is_maintained_by?(@current_user) %>
       <p class="editablelink"><%= link_to raw('<i class="icon-plus-sign"></i> Add Gif'), new_user_gif_path(current_user) %></p>
     <% end %>
