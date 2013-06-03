@@ -41,6 +41,16 @@ class GifsController < ApplicationController
 
   def edit
     @gif = Gif.find(params[:id])
+
+    if @gif.is_maintained_by?(@current_user)
+      respond_to do |format|
+        format.html
+        format.json { render json: @gif}
+      end
+    else
+      redirect_to root_path, :notice => "Yo, why you wanna mess with other people's gifs? That's not cool. Not cool..."
+    end
+
   end
 
   def update
@@ -61,9 +71,13 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     @gif.destroy
 
-    respond_to do |format|
-      format.html { redirect_to user_gifs_url(@current_user) }
-      format.json { head :no_content }
+    if @gif.is_maintained_by?(@current_user)
+      respond_to do |format|
+        format.html { redirect_to user_gifs_url(@current_user) }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_path, :notice => "Yo, seriously?! Why are you trying to delete other people's gifs? Seriously not cool."
     end
   end
 
