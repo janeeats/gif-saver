@@ -1,7 +1,5 @@
 <h1 class="editable"><%= @gif.caption %></h1>
 
-<% binding.pry %>
-
 <% if @gif.is_maintained_by?(current_user) %>
   <p class="editablelink"><%= link_to raw('<i class="icon-edit"></i> Edit Caption'), edit_gif_path(@gif) %></p>
 <% end %>
