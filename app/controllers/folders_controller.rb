@@ -34,6 +34,16 @@ class FoldersController < ApplicationController
 
   def edit
     @folder = Folder.find(params[:id])
+
+    if @folder.is_maintained_by?(@current_user)
+      respond_to do |format|
+        format.html
+        format.json { render json: @folder}
+      end
+    else
+      redirect_to root_path, :notice => "Yo! Don't mess with other people's folders!"
+    end
+
   end
 
   def create
@@ -66,11 +76,15 @@ class FoldersController < ApplicationController
 
   def destroy
     @folder = Folder.find(params[:id])
-    @folder.destroy
-
-    respond_to do |format|
-      format.html { redirect_to user_folders_url(@current_user) }
-      format.json { head :no_content }
+    
+    if @folder.is_maintained_by?(@current_user)
+      @folder.destroy
+      respond_to do |format|
+        format.html { redirect_to user_folders_url(@current_user) }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_path, :notice => "Yo! Don't mess with other people's folders!"
     end
   end
 end
