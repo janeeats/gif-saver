@@ -9,4 +9,8 @@ class Folder < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, :use => [:slugged, :history]
 
+  def is_maintained_by?(user)
+    true if user == self.user
+  end
+
 end
