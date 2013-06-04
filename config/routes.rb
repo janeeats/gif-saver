@@ -5,6 +5,8 @@ Gifsaver::Application.routes.draw do
   match 'auth/facebook/callback' => 'sessions#facebook'
   match 'auth/failure' => redirect('/')
 
+  match 'auth/twitter/callback' => 'sessions#twitter'
+
   resources :users do
     resources :gifs, only: [:show, :index, :new, :create]
     resources :folders, only: [:show, :index, :new, :create]

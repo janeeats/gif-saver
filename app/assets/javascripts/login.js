@@ -1,21 +1,14 @@
-// $(function() {
+$(function() {
 
-//   // show nav
-//   $('.container header').css('top') {
-//     // top: 0px;
-//   });
+  // show nav
+  $('div.container header#loginpage').addClass("shownav");
+  $('div.container section.loginform').addClass("shownav");
+  console.log('added the classes!')
 
-//   $('#main').css({
-//     // top: 0px;
-//   });
+  // when login clicked, collapse nav
+  $("#login_button").click(function() {
+    $('div.container header#loginpage').removeClass("shownav");
+    $('div.container section.loginform').removeClass("shownav");
+  });
 
-//   // when login clicked, collapse nav
-//   $( "#login_button" ).click({
-//     $('.container header').css({
-//       // top: -65px;
-//     });
-//     $('#main').css({
-//       // top: -55px;
-//     });
-//   });
-// });
+});

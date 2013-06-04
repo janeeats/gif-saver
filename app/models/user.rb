@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     self.folders.collect { |folder| folder.gifs }.flatten
   end
 
+  def has_an_identity?
+    true unless self.identities.empty?
+  end
+
   def has_identity?(auth_provider)
     identity_array = self.identities.collect {|identity| identity.provider}
     identity_array.include?(auth_provider)
