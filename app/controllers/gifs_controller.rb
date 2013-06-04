@@ -91,6 +91,17 @@ class GifsController < ApplicationController
     end
   end
 
+  def twitter
+    @gif = Gif.find(params[:id])
+    tweet = @gif.caption + " " + @gif.file.url
+    if @current_user.has_identity?("twitter")
+      @gif.post_to_twitter(@current_user, tweet)
+      redirect_to @current_user, :notice => 'Posted to Twitter!'
+    else
+      redirect_to @current_user, :notice => 'Please enable uploads to Twitter.' 
+    end
+  end
+
   def superindex
     @gifs = Gif.all
     
