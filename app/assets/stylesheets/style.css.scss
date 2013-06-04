@@ -230,6 +230,34 @@ body {
       padding: 0px 60px 60px 60px;
       top: -55px;
 
+      .half {
+        margin-top: 60px;
+        width: 45%;
+        float: left;
+        padding-right: 60px;
+        margin-right: 60px;
+        border-right: 1px dashed $slate;
+
+        h1 {
+          margin: 0px;
+        }
+
+      }
+
+      .half:first-child > p {
+        text-indent: 25px;
+      }
+
+      .half:first-child p > .primary {
+        margin-left: 24px;
+      }
+
+      .end {
+        padding-right: 0px;
+        margin-right: 0px;
+        border-right: 0px;
+      }
+
       #notice {
         padding: 12px 36px;
         background-color: $turquoise;
@@ -255,6 +283,14 @@ body {
         margin: 36px 0px;
       }
 
+      .success {
+        color: $turquoise;
+      }
+
+      .warning {
+        color: $red;
+      }
+
       a {
         color: $slate;
         text-decoration: none;
@@ -270,14 +306,6 @@ body {
         border-bottom: 0px;
         opacity: 0.8;
         -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-      }
-
-      a.highlight {
-        color: $red;
-      }
-
-      a.highlight:hover {
-        color: $slate;
       }
 
       .primary {
