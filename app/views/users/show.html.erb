@@ -20,7 +20,7 @@
       <p><i class="icon-check-sign success"></i> Yay! You can post your gifs to Twitter.</p>
     <% else %>
       <p><i class="icon-warning-sign warning"></i> Your account is not linked to Twitter. </p>
-      <p><%= link_to "Enable", "#", :class => 'primary' %></p>
+      <p><%= link_to "Enable", "/auth/twitter", :class => 'primary' %></p>
     <% end %>
 
 </div>
