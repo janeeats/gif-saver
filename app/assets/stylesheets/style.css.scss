@@ -26,7 +26,7 @@ body {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   background: $blue-grey;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 24px;
   color: black;
   -webkit-font-smoothing: antialiased;
@@ -34,14 +34,15 @@ body {
   
   h1 {
     font-weight: 100;
-    font-size: 48px;
+    font-size: 72px;
     text-transform: uppercase;
-    line-height: 48px;
+    line-height: 72px;
+    color: $slate;
   }
 
   h2 {
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 32px;
+    line-height: 32px;
     text-transform: uppercase;
     margin-bottom: 12px;
     font-weight: 200;
@@ -54,7 +55,13 @@ body {
   .container {
     margin: 0px;
     width: 100%;
-    
+
+    .shownav {
+      top: 0px !important;
+      transition: top 0.3s ease;
+      z-index: 1;
+    }
+
     header:hover {
       position: relative;
       top: 0px;
@@ -71,6 +78,7 @@ body {
       width: auto;
       background-color: transparent;
       color: $slate;
+      z-index: 1;
 
       .logobox:hover > h1 {
         background-color: $fuschia;
@@ -212,10 +220,43 @@ body {
       margin-top: 20px !important;
     }
 
+    #login {
+      text-align: center;
+      width: 100%;
+    }
+
     .main {
       position: relative;
       padding: 0px 60px 60px 60px;
       top: -55px;
+
+      .half {
+        margin-top: 60px;
+        width: 45%;
+        float: left;
+        padding-right: 60px;
+        margin-right: 60px;
+        border-right: 1px dashed $slate;
+
+        h1 {
+          margin: 0px;
+        }
+
+      }
+
+      .half:first-child > p {
+        text-indent: 25px;
+      }
+
+      .half:first-child p > .primary {
+        margin-left: 24px;
+      }
+
+      .end {
+        padding-right: 0px;
+        margin-right: 0px;
+        border-right: 0px;
+      }
 
       #notice {
         padding: 12px 36px;
@@ -242,6 +283,14 @@ body {
         margin: 36px 0px;
       }
 
+      .success {
+        color: $turquoise;
+      }
+
+      .warning {
+        color: $red;
+      }
+
       a {
         color: $slate;
         text-decoration: none;
@@ -257,14 +306,6 @@ body {
         border-bottom: 0px;
         opacity: 0.8;
         -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-      }
-
-      a.highlight {
-        color: $red;
-      }
-
-      a.highlight:hover {
-        color: $slate;
       }
 
       .primary {
@@ -431,7 +472,7 @@ body {
           -webkit-font-smoothing: antialiased;
           font-weight: 400;
           text-transform: uppercase;
-          font-size: 18px;
+          font-size: 24px;
           padding: 12px 36px;
           transition: background 0.3s ease; 
           margin-top: 30px;

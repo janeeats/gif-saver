@@ -1,15 +1,40 @@
-<h2>My Info</h2>
-<p>
-  I go by the username of <strong><%= @user.username %></strong> and my email is <strong><%= @user.email %></strong>.<br />
-  <%= link_to raw('<i class="icon-edit"></i> Edit Info or Update Password'), edit_user_path(@user), :class => 'highlight' %>
-</p>
+<div class="half">
 
-<h2>Set me up</h2>
-<p>
-  <strong>Connected Networks:</strong>
-  <% if @user.has_identity?("facebook") %>
-    Yay! You can post your gifs to Facebook.
-  <% else %>
-    <%= link_to "Enable Posting Gifs to Facebook", "/auth/facebook", :class => 'highlight' %>
-  <% end %>
-</p>
+  <h1>Set Me Up</h1>
+
+    <% unless @user.has_an_identity? %>
+      <p><strong>Gifest allows you to post your gifs to Facebook or Twitter.</strong></p>
+    <% end %>
+
+    
+    <h2>Facebook</h2> 
+    <% if @user.has_identity?("facebook") %>
+      <p><i class="icon-check-sign success"></i> Yay! You can post your gifs to Facebook.</p>
+    <% else %>
+      <p><i class="icon-warning-sign warning"></i> Your account is not linked to Facebook. </p>
+      <p><%= link_to "Enable", "/auth/facebook", :class => 'primary' %></p>
+    <% end %>
+  
+    <h2>Twitter</h2> 
+    <% if @user.has_identity?("twitter") %>
+      <p><i class="icon-check-sign success"></i> Yay! You can post your gifs to Twitter.</p>
+    <% else %>
+      <p><i class="icon-warning-sign warning"></i> Your account is not linked to Twitter. </p>
+      <p><%= link_to "Enable", "/auth/twitter", :class => 'primary' %></p>
+    <% end %>
+
+</div>
+
+<div class="half end"> 
+
+  <h1 class="editable">My Info</h1>
+
+    <p class="editablelink">
+      <%= link_to raw('<i class="icon-edit"></i> Edit User'), edit_user_path(@user), :class => 'highlight' %>
+    </p>
+
+    <p>
+      I go by the username of <strong><%= @user.username %></strong> and my email is <strong><%= @user.email %></strong>.<br />
+    </p>
+
+</div>

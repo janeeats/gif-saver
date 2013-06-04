@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="container">
-    <header>
+    <header <%= 'id=loginpage' unless @current_user %>>
       <div class="logobox">
         <h1><%= link_to "Gifest", root_url %></h1>
       </div>
@@ -40,7 +40,7 @@
  
     </header>
 
-    <section id="main" class="main">
+    <section id="main" class="main <%= 'loginform' unless @current_user %>">
       <% if notice %>
         <p id="notice">
           <%= notice %>
