@@ -10,28 +10,19 @@
 </head>
 <body>
   <div class="container">
-    <header>
+    <header id="loginpage">
       <div class="logobox">
         <h1><%= link_to "Gifest", root_url %></h1>
       </div>
       <!-- <h2>Get your GIF game up.</h2> -->
 
       <div id="nav">
-        <% if current_user %>
-          <%= link_to "Add Folder", new_user_folder_path(current_user) %>
-          <%= link_to "My Folders", user_folders_path(current_user) %>
-          <%= link_to "Add Gif", new_user_gif_path(current_user) %>
-          <%= link_to "My Gifs", user_gifs_path(current_user) %>
-          <%= link_to "Settings", current_user %>
-          <%= link_to "Log Out", log_out_path %>
-        <% else %>
-          <%= link_to "Log In", log_in_path %>
-          <%= link_to "Sign Up", sign_up_path %>
-          <%= link_to "", "#" %>
-          <%= link_to "", "#" %>
-          <%= link_to "", "#" %>
-          <%= link_to "", "#" %>
-        <% end %>
+        <%= link_to "Log In", log_in_path %>
+        <%= link_to "Sign Up", sign_up_path %>
+        <%= link_to "", "#" %>
+        <%= link_to "", "#" %>
+        <%= link_to "", "#" %>
+        <%= link_to "", "#" %>
         <%= link_to "", "#" %>
         <%= link_to "", "#" %>
       </div>
@@ -40,7 +31,7 @@
  
     </header>
 
-    <section id="main" class="main">
+    <section id="main" class="main loginform">
       <% if notice %>
         <p id="notice">
           <%= notice %>
