@@ -34,6 +34,10 @@ class Gif < ActiveRecord::Base
     user.facebook.put_wall_post(caption , {:link => self.file.url})
   end
 
+  def post_to_twitter(user, tweet)
+    user.twitter.update(tweet)
+  end
+
   def is_maintained_by?(user)
     true if user == self.folder.user
   end

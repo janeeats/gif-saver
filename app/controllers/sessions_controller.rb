@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     unless @auth = Identity.find_from_hash(auth)
       # create a new user or add an auth to existing user, depending on
       # whether there is already a user signed in.
-      @auth = Identity.create_from_hash(auth, current_user)
+      @auth = Identity.create_from_hash_for_twitter(auth, current_user)
     end
 
     # Log the authorizing user in.

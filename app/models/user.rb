@@ -33,4 +33,18 @@ class User < ActiveRecord::Base
     @facebook ||= Koala::Facebook::API.new(facebook_token)
   end
   
+  def twitter
+    twitterclient = Twitter::Client.new(
+      :oauth_token => twitter_token,
+      :oauth_token_secret => twitter_token_secret)
+  end
+
+  def twitter_token
+    identities.find_by_provider("twitter").token
+  end
+
+  def twitter_token_secret
+    identities.find_by_provider("twitter").secret
+  end
+
 end
