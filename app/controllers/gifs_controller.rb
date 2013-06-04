@@ -1,5 +1,5 @@
 class GifsController < ApplicationController
-  skip_before_filter :login_required, :only => "show"
+  skip_before_filter :login_required, :only => ["show", "superindex"]
 
   def index
     @user = User.find(params[:user_id])
