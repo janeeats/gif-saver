@@ -79,6 +79,9 @@ class FoldersController < ApplicationController
     
     if @folder.is_maintained_by?(@current_user)
       @folder.destroy
+      @folder.gifs.each do |gif|
+        gif.destroy
+      end
       respond_to do |format|
         format.html { redirect_to user_folders_url(@current_user) }
         format.json { head :no_content }

@@ -103,7 +103,7 @@ class GifsController < ApplicationController
   end
 
   def superindex
-    @gifs = Gif.all
+    @gifs = Gif.includes(:folder)
     
     respond_to do |format|
       format.html # index.html.erb
